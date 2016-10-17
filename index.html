@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4GsB_2SimZJN0sJZDjHPwnv6dLAeYxP0&callback=initMap"></script>
+		<script>
+	function myMap() {
+	var myCenter = new google.maps.LatLng(64.126521, -21.817439);
+  	//myCenter is a latitude/longitude (LatLng) object which stores a point//
+ 	 var mapCanvas = document.getElementById("googleMap");
+  	//mapCanvas stores the link to the div that the map will go in//
+  	var mapOptions = {center: myCenter, zoom: 3};
+ 	 //mapOptions stores the options for the map, note: we used myCenter, the variable storing
+ 	 //a point, in the center option//
+ 	 var map = new google.maps.Map(mapCanvas, mapOptions);
+  	//map creates the map itself, we gave it the variables for the mapCanvas (where to put it)
+ 	 //and the mapOptions (what it wil look like//
+  	var marker = new google.maps.Marker({position:myCenter});
+  	//marker creates a new marker at the myCenter location (we used the myCenter LatLng variable again//
+  	marker.setMap(map);
+ 	 //follows object.method notation
+ 	 //marker is the object, is being told to set its map to the map we created two lines up. This puts the marker
+ 	 //on the map//
+ 	 
+ 	 var origin = new google.maps.LatLng(63.430515,10.395053);
+ 	 var marker2 = new google.maps.Marker({position:origin});
+ 	 marker2.setMap(map);
+
+	var denmark = new google.maps.LatLng (55.403756,10.402370);
+	var markerD = new google.maps.Marker ({position:denmark});
+	markerD.setMap(map);
+	
+	var england = new google.maps.LatLng(51.507351, -0.127758);
+	var markerE = new google.maps.Marker ({position:england});
+	markerE.setMap(map);
+	
+	var spain = new google.maps.LatLng(41.385064,2.173403);
+	var markerS = new google.maps.Marker({position:spain});
+	markerS.setMap(map);
+	
+	var italy = new google.maps.LatLng(40.851775,14.268124);
+	var markerI = new google.maps.Marker({position: italy});
+	markerI.setMap(map);
+	
+	var korea = new google.maps.LatLng (37.566535,126.977969)
+	var markerK = new google.maps.Marker ({position: korea});
+	markerK.setMap(map);
+
+	var japan = new google.maps.LatLng (35.689487,139.691706)
+	var markerJ = new google.maps.Marker ({position: japan});
+	markerJ.setMap(map);
+	
+	var reykjavik = new google.maps.LatLng (63.879176,-22.445388);
+	var mapCanvasR = document.getElementById("iceMap");
+	var mapOptionsR = {center: reykjavik, zoom: 15, mapTypeId:google.maps.MapTypeId.HYBRID};
+	var mapreykjavik = new google.maps.Map (mapCanvasR, mapOptionsR);
+	var markerR = new google.maps.Marker ({position:reykjavik});
+	markerR.setMap(mapreykjavik);
+	
+	var trondheim = new google.maps.LatLng(63.447387,10.454607);
+	var mapCanvasT = document.getElementById("norMap");
+	var mapOptionsT = {center: trondheim, zoom: 15, mapTypeId:google.maps.MapTypeId.HYBRID};
+	var maptrondheim = new google.maps.Map (mapCanvasT, mapOptionsT);
+	var markerT = new google.maps.Marker ({position: trondheim});
+	markerT.setMap(maptrondheim);
+	
+	var odense = new google.maps.LatLng(55.366491,10.385106);
+	var mapCanvasO = document.getElementById("denMap");
+	var mapOptionsO = {center: odense, zoom: 15, mapTypeId:google.maps.MapTypeId.HYBRID};
+	var mapodense = new google.maps.Map (mapCanvasO, mapOptionsO);
+	var markerO = new google.maps.Marker ({position: odense});
+	markerO.setMap(mapodense);
+	
+	var london = new google.maps.LatLng(51.508112,-0.075949);
+	var mapCanvasL = document.getElementById("engMap");
+	var mapOptionsL = {center: london, zoom: 15, mapTypeId:google.maps.MapTypeId.HYBRID};
+	var maplondon = new google.maps.Map (mapCanvasL, mapOptionsL);
+	var markerL = new google.maps.Marker ({position: london});
+	markerL.setMap(maplondon);
+	
+	var barcelona = new google.maps.LatLng(41.403644,2.174349);
+	var mapCanvasB = document.getElementById("spaMap");
+	var mapOptionsB = {center: barcelona, zoom:15, mapTypeId:google.maps.MapTypeId.HYBRID};
+	var mapbarcelona = new google.maps.Map (mapCanvasB, mapOptionsB);
+	var markerB = new google.maps.Marker ({position: barcelona});
+	markerB.setMap(mapbarcelona); 
+	
+	var naples = new google.maps.LatLng(40.851775,14.268124);
+	var mapCanvasN = document.getElementById("itaMap");
+	var mapOptionsN = {center: naples, zoom:15, mapTypeId:google.maps.MapTypeId.HYBRID};
+	var mapnaples = new google.maps.Map (mapCanvasN, mapOptionsN);
+	var markerN = new google.maps.Marker ({position: naples});
+	markerN.setMap(mapnaples);
+	
+	var seoul = new google.maps.LatLng(37.575838,126.973580);
+	var mapCanvasS = document.getElementById("korMap");
+	var mapOptionsS = {center: seoul, zoom:15, mapTypeId:google.maps.MapTypeId.HYBRID};
+	var mapseoul = new google.maps.Map (mapCanvasS, mapOptionsS);
+	var markerS = new google.maps.Marker ({position: seoul});
+	markerS.setMap(mapseoul);
+	
+	var tokyo = new google.maps.LatLng(35.671628,139.710285);
+	var mapCanvasY = document.getElementById("japMap");
+	var mapOptionsY = {center: tokyo, zoom:15, mapTypeId:google.maps.MapTypeId.HYBRID};
+	var maptokyo = new google.maps.Map (mapCanvasY, mapOptionsY);
+	var markerY = new google.maps.Marker ({position: tokyo});
+	markerY.setMap(maptokyo);
+	
+	var myTrip = [myCenter,origin,denmark,england,spain,italy,korea,japan];
+	var flightPath = new google.maps.Polyline({path:myTrip, strokeColor:"#ff1a1a", strokeOpacity:0.8, strokeWeight:2});
+	flightPath.setMap(map);
+	
+}
+google.maps.event.addDomListener(window, 'load', myMap);
+</script>
+</head>
+
+<body>
+<h1>My Dream Vacation</h1>
+<div id="googleMap" style="width:1900px;height:900px;"></div>
+<h1>Reykjav&#xED;k, Iceland</h1>
+<img src = "blue-lagoon-winter.jpg" style = "width: 700px;"> 
+<div id="iceMap" style="width: 700px;height:491px;float:left;"></div>
+<p class="clear">Reykjav&#xED;k is the capital and largest city of Iceland. It is believed to be where the vikings of Iceland's history
+first settled. Summer climate in Reykjav&#xED;k ranges from 10 to 15 &deg;C (50 to 59 &deg;F), whereas in the winter it ranges from -2 to 2 &deg;C
+(28 to 26&deg;F). However, Iceland's infamous auroras are available for viewing all year round. Not only that, but Reykjav&#xED;k has
+a very active nightlife with many crowded bars. One well known tourist attraction is the Blue Lagoon, a geothermal spa located in 
+a lava field in Grindav&#xED;k.</p>
+<h1>Trondheim, Norway</h1>
+<img src = "ringve.jpg" style="height:491px;">
+<div id="norMap" style="width: 700px; height:491px;float:left;"></div>
+<p>Trondheim was Norway's original capital, but now it is the third largest city in Norway. It is also a municipality with 
+large student population and a mellow paced pedestrianized lifestyle. Trondheim lacks the industrial atmosphere of cities like 
+New York in America and without skyscrapers and tall buildings, nature is accessible all around. The average annual temperature
+ in Trondheim is 5.2 &deg;C. A famous attraction in Trondheim is the Ringve Music Museum. The Ringve Music Museum is Norway's
+ national music museum with a collection of 2000 instruments displayed in historically designed interiors, which add to the 
+ experience as unique backdrops. </p>
+<h1>Odense, Denmark</h1>
+<img src = "ferme-habitation.jpg" style="height:491px;">
+<div id="denMap" style="width:700px;height:491px;float:left;"></div>
+<p>Odense is Denmark's third largest city and the main city of Funen Island. Odense is known as being the birthplace to
+Hans Christian Andersen, who is known for his many fairy tales. Odense is the commercial hub of Funen and has a notable shopping
+district. The average annual temperate in Odense is 8.4 &deg;C. A well known attraction in Odense is the Funen Village. The Funen
+Village is an open museum compiled of buildings from the 17th to the 19th century. It is open all summer and members of the Living
+ History are there, acting as figures in a historical setting which whom you can communicate with to learn about the culture and history.</p>
+ <h1>London, England</h1>
+ <img src ="hm-tower-of-london-image-040-ae1b582d5c7d24c210fef7c4573af37b.jpg" style="height:491px;">
+ <div id="engMap" style="width:700px;height:491px;float:left;"></div>
+<p>London is the capital city of England and the United Kingdom. London is one of the most cosmopolitan cities in the world and is a leading
+ global city in arts, commerce, education, entertainment, fashion, finance, healthcare, media, professional services, research and development, tourism, and transport.
+ London is renown for a numerous of tourist attractions, but one notable one is the Tower of London. The tower of London has a 900 
+ year history as a royal palace, prison and place of execution, arsenal, jewel house and zoo.</p>
+ <h1>Barcelona, Spain</h1>
+ <img src ="Sagrada_Familia_01.jpg" style="height:491px;">
+ <div id="spaMap" style="width:700px;height:491px;float:left;"></div>
+ <p>Barcelona is Spain's most populous municipality and is the capital city of the autonomous community of Catalonia in the Kingdom of Spain. 
+ Barcelona is one of the world's leading tourist, economic, trade fair and cultural centres, and its influence in commerce, education, entertainment, media, fashion, science, and the arts. 
+ It is also a major cultural and economic center. La Sagrada Família is one of Gaudí's most famous works in Barcelona. s a giant Basilica that has been under construction since 1882. 
+ The building has been under construction for so long there is a difference in construction within the building that is visible to tourists,
+  including the construction methods and materials.</p>
+ <h1>Naples, Italy</h1>
+ <img src="Albertini-rid-1-2-1024x758.jpg" style="height:491px;">
+ <div id="itaMap" style="width:700px;height:491px;float:left;"></div>
+ <p>Naples is Italy's third-largest city and one of its oldest. Naples is blessed with rich volcanic soils, a bountiful sea, and centuries of culinary development. 
+ The city is densely populated and streets are lined with streetside shops selling you all your needs. An interesting attraction 
+ in Naples is La Napoli Sotterranea, or otherwise known as, The Naples Underground. La Napoli Sotterranea is an city built underground below Naples. 
+ In the Underground of Naples lies a labyrinth of tunnels, tanks and cavities that form a real city. It was originally used as aqueducts, 
+ but went out of service when there was a breakout of colera. Afterwards, it was used to house refugees during WWII. Nowadays, tourists 
+ are given the chance to explore the Naples Underground in a tour.
+ <h1>Seoul, South Korea</h1>
+ <img src="1568040_image2_1.jpg" style="height:491px;">
+ <div id="korMap" style="width:700px;height:491px;float:left;"></div>
+ <p> Seoul is the capital and largest metropolis of South Korea. Seoul is extremely technologically advanced and has the 
+ world's fastest internet connection. Seoul even has wi-fi available in most outdoor spaces. Caf&eacute;s, PC bangs, restaurants, spas, shopping centers and fast food chains are open any hour of any night. 
+ Other than technology, Seoul also has plenty of museums. Tourists are able to visit the Gyeongbokgung Palace, the main 
+ royal palace of the Joseon dynasty. The palace is open to visitors to walk around and explore, but tours are also available.</p>
+ <h1>Tokyo, Japan</h1>
+ <img src="6245993298_db2cc04284_o.jpg" style="height:491px;">
+ <div id="japMap" style="width:700px;height:491px;float:left;"></div>
+ <p>Tokyo is the capital city and a prefecture of Japan. Tokyo has numerous museums and theatres for performances, private or public. 
+ City life in Tokyo revolves around local shrines and temples, where local festivals are often held. While Tokyo has a very 
+ small town feel, it also has a lively youth fashion and fashion subcultures are seen everywhere. Harajuku is a district in Tokyo 
+ known for its lively youth fashion and fashion subcultures. Harajuku is known for its fashion subcultures, retail fashion, and dining.
+ 
+ <h2>Sources</h2>
+ <h3>Information</h3>
+<p>http://www.bluelagoon.com/about-us/</p>
+<p>http://www.visiticeland.com/DiscoverIceland/regions/reykjavik</p>
+<p>http://trondheim.com/</p>
+<p> https://www.visitnorway.com/places-to-go/trondelag/trondheim/</p>
+<p>http://denmark.dk/en/quick-facts/map-of-denmark/odense</p>
+<p>http://museum.odense.dk/en/museums/funen-village</p>
+<p>https://en.wikipedia.org/wiki/Tower_of_London</p>
+<p>http://www.joinlondon.co.uk/lifestyle/</p>
+<p>http://www.barcelona-life.com/barcelona/expats</p>
+<p>http://www.sagradafamilia.org/en/</p>
+<p>http://www.napolisotterranea.org/</p>
+<p>https://www.ricksteves.com/watch-read-listen/read/articles/naples-italy-in-the-extreme</p>
+<p>http://travel.cnn.com/seoul/life/50-reasons-why-seoul-worlds-greatest-city-534720/</p>
+<p>http://www.expatarrivals.com/south-korea/seoul/lifestyle-in-seoul</p>
+<p>http://english.visitkorea.or.kr/enu/ATR/SI_EN_3_1_1_1.jsp?cid=264337</p>
+<p>https://en.wikipedia.org/wiki/Tokyo</p>
+<p>http://www.travelchannel.com/destinations/japan/articles/harajuku-culture-and-trends</p>
+<p>http://wikitravel.org/en/Tokyo/Harajuku</p>
+ <h3>Images</h3>
+ <p>Blue Lagoon: http://www.bluelagoon.com/gallery/</p>
+ <p>Ringve Music Museum: http://trondheim.com/ringve-music-museum</p>
+ <p>Funen Village: https://www.tripadvisor.com/Attraction_Review-g189524-d243794-Reviews-The_Funen_Village-Odense_Funen_and_Islands.html</p>
+ <p>The London Tower: https://en.wikipedia.org/wiki/Tower_of_London</p>
+ <p>La Sagrada Família: https://en.wikipedia.org/wiki/Sagrada_Fam%C3%ADlia</p>
+ <p>La Napoli Sotterranea: http://www.napolisotterranea.org/en/naples-underground/</p>
+ <p>Gyeongbokgung Palace: http://english.visitkorea.or.kr/enu/ATR/SI_EN_3_1_1_1.jsp?cid=264337</p>
+ <p>Harajuku: https://www.flickr.com/photos/darraghb/6245993298/</p>
+</body>
+
+</html>
